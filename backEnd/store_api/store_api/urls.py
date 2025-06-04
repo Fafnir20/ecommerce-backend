@@ -19,5 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('core.urls')),  # Tudo que vier depois de /api/ vai para o core
+    #path('api/', include('core.urls')),  # Tudo que vier depois de /api/ vai para o core
+    path('users/', include('users.urls')),
+    path('products/', include('products.urls')),
+    path('orders/', include('orders.urls')),
 ]
