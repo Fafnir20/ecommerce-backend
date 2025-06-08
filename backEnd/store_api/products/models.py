@@ -4,6 +4,7 @@ from django.db import models
 class Categoria(models.Model):
     nome = models.CharField("Categoria", max_length=100)
     descricao = models.TextField("Descricao", blank=True)
+    imagem = models.ImageField("Imagem da categoria", upload_to='categorias/', blank=True, null=True)
     def __str__(self):
         return self.nome
     
@@ -23,5 +24,6 @@ class Produto(models.Model):
     status = models.CharField("Status", max_length=20, default='activo')
     codigo_barra = models.CharField("Código de barras", max_length=50, unique=True)
     avaliacao = models.DecimalField("Avaliacao", max_digits=3, decimal_places=2, null=True, blank=True)
+    imagem = models.ImageField("Imagem do produto", upload_to='categorias/', blank=True, null=True)
     def __str__(self):
         return self.nome

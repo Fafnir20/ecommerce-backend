@@ -24,4 +24,9 @@ COPY . /code
 
 EXPOSE 8000
 
+# antes do CMD
+RUN mkdir -p /media
+VOLUME ["/media"]
+
+
 CMD ["gunicorn","--bind",":8000","--workers","2","store_api.wsgi"]

@@ -14,10 +14,11 @@ from pathlib import Path
 import environ
 import os 
 
+
+
 CSRF_TRUSTED_ORIGINS = [
     "https://store-api-bitter-snowflake-5654.fly.dev",
 ]
-
 
 
 env = environ.Env()
@@ -25,6 +26,8 @@ environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_ROOT = '/data/media'
+MEDIA_URL = '/media/'
 
 
 # Quick-start development settings - unsuitable for production
