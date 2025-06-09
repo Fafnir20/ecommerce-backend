@@ -18,3 +18,13 @@ class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Produto
         fields = '__all__'
+
+
+class TopProdutoSerializer(serializers.ModelSerializer):
+    total_vendido = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Produto
+        fields = [
+            'id', 'nome', 'descricao', 'preco', 'imagem', 'total_vendido'
+        ]
