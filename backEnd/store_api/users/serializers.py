@@ -20,6 +20,7 @@ class PermissaoSerializer(serializers.ModelSerializer):
 class UsuarioSerializer(serializers.ModelSerializer):
     # Campo extra para confirmar a senha
     password2 = serializers.CharField(write_only=True, required=True)
+    enderecos = EnderecoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Usuario
