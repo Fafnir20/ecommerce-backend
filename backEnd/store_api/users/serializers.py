@@ -24,11 +24,14 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = [
-            'id', 'username', 'email', 'password', 'password2', 'funcao',
+            'id', 'username', 'email', 'password', 'password2', 'funcao', 'enderecos',
             # 'endereco_rua', 'endereco_numero', 'endereco_complemento',
             # 'endereco_bairro', 'endereco_cidade', 'endereco_estado',
             # 'endereco_cep', 'endereco_pais',
         ]
+        extra_kwargs = {
+            'password': {'write_only': True}  # Endereços são gerenciados separadamente
+        }
         # extra_kwargs = {
         #     'password': {'write_only': True},
         #     'endereco_rua': {'required': False, 'allow_null': True, 'allow_blank': True},
