@@ -24,8 +24,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = [
-            '__all__'
-            # 'id', 'username', 'email', 'password', 'password2', 'funcao',
+            'id', 'username', 'email', 'password', 'password2', 'funcao',
             # 'endereco_rua', 'endereco_numero', 'endereco_complemento',
             # 'endereco_bairro', 'endereco_cidade', 'endereco_estado',
             # 'endereco_cep', 'endereco_pais',
