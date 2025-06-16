@@ -4,7 +4,7 @@ from .models import Usuario, Funcao, Permissao, Endereco
 class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endereco
-        fields = '__all__'
+        fields = ['id', 'rua', 'bairro', 'cidade', 'provincia', 'codigo_postal']
 
 
 class FuncaoSerializer(serializers.ModelSerializer):
