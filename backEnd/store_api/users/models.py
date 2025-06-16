@@ -23,8 +23,10 @@ class PermissaoFuncao(models.Model):
         return f"{self.funcao.nome} - {self.permissao.nome}"
 
 class Usuario(AbstractUser):
+    email = models.EmailField("Email", unique=True)
     funcao = models.ForeignKey(Funcao, on_delete=models.CASCADE, related_name='usuarios', null=True, blank=True)
     # Campos padrao de AbstractUser: username, email, password, etc.
+
     # Campos de endereço adicionais
     endereco_rua = models.CharField("Rua", max_length=255, blank=True, null=True)
     endereco_numero = models.CharField("Número", max_length=20, blank=True, null=True)
@@ -34,5 +36,7 @@ class Usuario(AbstractUser):
     endereco_estado = models.CharField("Estado/Província", max_length=100, blank=True, null=True)
     endereco_cep = models.CharField("CEP/Postal Code", max_length=20, blank=True, null=True)
     endereco_pais = models.CharField("País", max_length=100, blank=True, null=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']  # Campos obrigatórios para criar um usuário
     def __str__(self):
-        return self.username
+        return self.email
